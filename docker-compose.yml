@@ -1,0 +1,8 @@
+services:
+  flask-app:
+    build: .
+    container_name: article15-flask-app
+    ports:
+      - "8015:5000"    # HTTP  -> map to flask-app.lab:80 via /etc/hosts + port, or curl :8015 directly
+      - "8443:5443"    # HTTPS -> curl :8443 directly
+    restart: unless-stopped
